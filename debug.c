@@ -9,3 +9,16 @@ void disassembleChunk(Chunk* chunk, const char* name) {
         offset = disassembleInstruction(chunk, offset);
     }
 }
+
+int disassmbleInstruction(Chunk* chunk, int offset) {
+    printf("%04d ", offset);
+
+    uint8_t instruction = chunk->code[offset];
+    switch (instruction) {
+        case OP_RETURN:
+            return simpleInstruction("OP_RETURN", offset);
+        default:
+            printf("Unknown opcode %d\n", instruction);
+            return offset + 1;
+    }
+}
