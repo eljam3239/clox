@@ -7,5 +7,13 @@ typedef enum {
     OP_RETURN,
 } OpCode;
 
+typedef struct {
+    int count;
+    int capacity;
+    uint8_t* code;  // Dynamic array of bytes       
+} Chunk;
+
+void initChunk(Chunk* chunk);
+
 
 #endif
